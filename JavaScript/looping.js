@@ -8,7 +8,24 @@ Jenis looping di JavaScript
 6. map <= akan sering digunakan di FE
 */
 
+/*
+for (init; condition; post) {
+  // your code here
+}
+- Jika kondisi terpenuhi / true maka perulangan akan dilakukan
+- Jika kondisi tidak terpenuhi / false maka perulangan akan berhenti
+- Agar perulangan bisa berhenti, bisa membuat sebuah additional condition didalam block scope looping, atau bisa menaikkan nilai dari init itu sendiri
+*/
+
 function forLoop(number) {
+  console.time("FOR LOOP");
+  for (let i = 0; i < number; i++) {
+    console.log("I", i);
+  }
+  console.timeEnd("FOR LOOP");
+}
+
+function nestedForLoop(number) {
   console.time("FOR LOOP");
   for (let i = 0; i < number; i++) {
     console.log("I", i);
@@ -20,6 +37,14 @@ function forLoop(number) {
 }
 
 function whileLoop(number) {
+  let i = 0;
+  while (i < number) {
+    console.log("I", i);
+    i++;
+  }
+}
+
+function nestedWhileLoop(number) {
   let i = 0;
   while (i < number) {
     console.log("I", i);
@@ -36,13 +61,21 @@ function whileLoop2(number) {
   let i = 0;
   do {
     console.log("I", i);
+    i++;
+  } while (i < number);
+}
+
+function nestedWhileLoop2(number) {
+  let i = 0;
+  do {
+    console.log("I", i);
     let j = 0;
     do {
       console.log("J", j);
       j++;
     } while (j < number);
     i++;
-  } while (i < 5);
+  } while (i < number);
 }
 
 whileLoop(5);
