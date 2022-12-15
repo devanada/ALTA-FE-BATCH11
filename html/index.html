@@ -2,10 +2,70 @@
 <html>
   <head>
     <title>Alterra Academy</title>
+    <style>
+      /* Selector -> element */
+      body {
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: auto;
+      }
+      li {
+        color: yellow;
+      }
+      /* CSS Grouping */
+      h1,
+      h2,
+      h3 {
+        color: gold;
+      }
+      /* Selector -> id */
+      #style-paragraph {
+        background-color: crimson;
+        padding: 1rem;
+        margin: 1.5rem;
+      }
+      /* Selector -> class */
+      .img-container {
+        background-color: darkmagenta;
+        margin: 1rem;
+      }
+      .container {
+        width: 100%;
+      }
+      .bg-container {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+          ),
+          url("https://www.nasa.gov/sites/default/files/thumbnails/image/simulated_bh.jpg");
+        background-position: center;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        padding: 10px;
+      }
+      .table {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        background-color: grey;
+      }
+    </style>
   </head>
   <body>
     <!-- Section Heading/Paragraph -->
-    <div>
+    <div style="background-color: brown; padding: 5px">
       <h1>Heading Satu</h1>
       <h2>Heading Dua</h2>
       <h3>Heading Tiga</h3>
@@ -15,7 +75,7 @@
       <p>Paragraph</p>
     </div>
     <!-- Styling Paragraph -->
-    <section>
+    <section id="style-paragraph">
       <strong>Membuat text lebih tebal</strong>
       <br />
       <em>Penekanan pada text menjadi italic</em>
@@ -25,7 +85,7 @@
       <a href="https://www.alterra.id" target="_blank">website alterra</a>
     </section>
     <!-- Show Image -->
-    <div>
+    <div class="img-container container">
       <img style="width: 400px; height: 350px" src="assets/gambar.jpg" />
       <img
         style="width: 350px; height: 350px"
@@ -33,7 +93,7 @@
       />
     </div>
     <!-- Ordered List -->
-    <div>
+    <div class="bg-container">
       <ol>
         <li>HTML</li>
         <li>CSS</li>
@@ -61,7 +121,7 @@
       </ol>
     </div>
     <!-- Unordered List -->
-    <div>
+    <div class="bg-container">
       <ul>
         <li>HTML</li>
         <li>CSS</li>
@@ -80,7 +140,7 @@
     </div>
     <!-- Table -->
     <div>
-      <table>
+      <table class="table">
         <tr>
           <th>Company</th>
           <th>Contact</th>
