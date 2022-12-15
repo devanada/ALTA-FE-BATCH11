@@ -2,6 +2,13 @@
 Seperti Merge Sort, Quick Sort menggunakan algoritma Divide and Conquer yang mana dia mengambil satu element sebagai poros dan juga membuat sebuah 2 array penampung. Setelah itu mencoba membagi array menjadi 2 bagian dan melakukan perbandingan nilai untuk menentukan posisi nilai terkecil.
 */
 
+/**
+ * Function sortQuick().
+ *
+ * Sort array using quick sort algorithm.
+ * @param {array} array - array that needs to sort
+ * @return array
+ */
 function sortQuick(array) {
   console.time("sortQuick");
   const result = sort(array);
