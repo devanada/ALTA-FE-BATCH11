@@ -11,7 +11,7 @@ export default class Layout extends Component<LayoutProps> {
     return (
       <div className="w-full h-screen bg-gray-200 flex flex-col overflow-auto">
         <Navbar />
-        <div className="h-full overflow-auto p-3">{this.props.children}</div>
+        <div className="h-full w-full overflow-auto">{this.props.children}</div>
       </div>
     );
   }

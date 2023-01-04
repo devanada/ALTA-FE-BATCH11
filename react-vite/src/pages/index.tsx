@@ -1,22 +1,34 @@
 // Constructor start
-import React, { Component } from "react";
+import { Component } from "react";
+import axios from "axios";
 
+import { SkeletonLoading } from "../components/Loading";
+import Carousel from "../components/Carousel";
 import Layout from "../components/Layout";
 import Card from "../components/Card";
-import { SkeletonLoading, LoadingAnimation } from "../components/Loading";
 
 interface DatasType {
   id: number;
   title: string;
-  image: string;
+  poster_path: string;
 }
 
-export default class Index extends Component {
-  state = {
-    // state: default value
-    datas: [],
-    loading: true,
-  };
+interface PropsType {}
+
+interface StateType {
+  loading: boolean;
+  datas: DatasType[];
+}
+
+export default class Index extends Component<PropsType, StateType> {
+  constructor(props: PropsType) {
+    super(props);
+    this.state = {
+      // state: default value
+      datas: [],
+      loading: true,
+    };
+  }
   // Constructor end
 
   // side effect
@@ -26,52 +38,59 @@ export default class Index extends Component {
   }
 
   fetchData() {
-    setTimeout(() => {
-      // setState = updater, untuk merubah nilai dari sebuah state
-      this.setState({
-        datas: [
-          {
-            id: 1,
-            title: "Avengers 1",
-            image: "https://pbs.twimg.com/media/FY-BpW9XwAIXIui.jpg",
-          },
-          {
-            id: 2,
-            title: "Avengers 2",
-            image: "https://pbs.twimg.com/media/FY-BpW9XwAIXIui.jpg",
-          },
-          {
-            id: 3,
-            title: "Avengers 3",
-            image: "https://pbs.twimg.com/media/FY-BpW9XwAIXIui.jpg",
-          },
-          {
-            id: 4,
-            title: "Avengers 4",
-            image: "https://pbs.twimg.com/media/FY-BpW9XwAIXIui.jpg",
-          },
-          {
-            id: 5,
-            title: "Avengers 5",
-            image: "https://pbs.twimg.com/media/FY-BpW9XwAIXIui.jpg",
-          },
-        ],
-        loading: false,
-      });
-    }, 6000);
+    axios
+      .get(
+        `now_playing?api_key=${
+          import.meta.env.VITE_API_KEY
+        }&language=en-US&page=1`
+      )
+      .then((data) => {
+        // apapun outputnya entah dia berhasil atau gagal, dimana terlihat ada jawaban dari backend, akan masuk ke then
+        const { results } = data.data; // destructuring
+        this.setState({ datas: results });
+      })
+      .catch((error) => {
+        // akan masuk ke catch jikalau sama sekali tidak menerima jawaban dari backend, tidak di response dari backend, biasanya server down
+        alert(error.toString());
+      })
+      .finally(() => this.setState({ loading: false }));
   }
 
   render() {
     return (
       <Layout>
-        <div className="grid grid-cols-4 gap-3">
-          {this.state.loading ? (
-            <LoadingAnimation />
-          ) : (
-            this.state.datas.map((data: DatasType) => (
-              <Card key={data.id} title={data.title} image={data.image} />
-            ))
-          )}
+        {!this.state.loading && (
+          <Carousel
+            datas={this.state.datas.slice(0, 5)}
+            content={(data) => (
+              <div
+                className="w-full h-full flex justify-center items-center bg-cover bg-center"
+                style={{
+                  backgroundImage: `linear-gradient(
+                    rgba(0, 0, 0, 0.5),
+                    rgba(0, 0, 0, 0.5)
+                  ), url(https://image.tmdb.org/t/p/original${data.poster_path})`,
+                }}
+              >
+                <p className="text-white tracking-widest font-bold break-words text-2xl">
+                  {data.title}
+                </p>
+              </div>
+            )}
+          />
+        )}
+        <div className="grid grid-cols-4 gap-3 p-3">
+          {this.state.loading
+            ? [...Array(20).keys()].map((data) => (
+                <SkeletonLoading key={data} />
+              ))
+            : this.state.datas.map((data) => (
+                <Card
+                  key={data.id}
+                  title={data.title}
+                  image={data.poster_path}
+                />
+              ))}
         </div>
       </Layout>
     );
