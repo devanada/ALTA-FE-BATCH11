@@ -1,6 +1,7 @@
-import React, { Component } from "react";
+import { Component } from "react";
 
 import Button from "./Button";
+import { withRouter } from "../utils/navigation";
 
 interface CardProps {
   title: string;
@@ -8,11 +9,13 @@ interface CardProps {
   id: number;
   labelButton: string;
   onClickFav?: () => void;
+  navigate?: any;
+  params?: any;
 }
 
-export default class Card extends Component<CardProps> {
+class Card extends Component<CardProps> {
   onClickDetail() {
-    alert(`Movie ${this.props.id} selected`);
+    this.props.navigate(`/movie/${this.props.id}`);
   }
 
   render() {
@@ -43,3 +46,5 @@ export default class Card extends Component<CardProps> {
     );
   }
 }
+
+export default withRouter(Card);
