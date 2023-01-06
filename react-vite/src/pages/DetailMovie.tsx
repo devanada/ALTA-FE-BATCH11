@@ -6,6 +6,7 @@ import { LoadingAnimation } from "../components/Loading";
 import Carousel from "../components/Carousel";
 import Layout from "../components/Layout";
 import { MovieType, VideosType } from "../utils/types/movie";
+import { useTitle } from "../utils/hooks/customHooks";
 
 const DetailMovie = () => {
   const { id_movie } = useParams();
@@ -13,6 +14,7 @@ const DetailMovie = () => {
   const [data, setData] = useState<MovieType>({});
   const [videos, setVideos] = useState<VideosType[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  useTitle(`${data.title} - Cinephile`);
 
   useEffect(() => {
     fetchData();

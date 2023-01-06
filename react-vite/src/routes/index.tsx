@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Homepage from "../pages";
 import DetailMovie from "../pages/DetailMovie";
 import Favorite from "../pages/Favorite";
+import Sandbox from "../pages/Sandbox";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
   {
     path: "/favorites",
     element: <Favorite />,
+  },
+  {
+    path: "/sandbox",
+    element: <Sandbox />,
   },
 ]);
 

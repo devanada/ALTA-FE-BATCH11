@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-const Input = () => {
+export const Input = () => {
   return (
     <div className="mb-3">
       <input className="input input-bordered w-full" />
@@ -8,7 +8,7 @@ const Input = () => {
   );
 };
 
-const TextArea = () => {
+export const TextArea = () => {
   return (
     <div className="mb-3">
       <textarea className="input input-bordered w-full" />
@@ -16,4 +16,4 @@ const TextArea = () => {
   );
 };
 
-export { Input, TextArea };
+// export { Input, TextArea };

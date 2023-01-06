@@ -4,8 +4,10 @@ import { SkeletonLoading } from "../components/Loading";
 import Layout from "../components/Layout";
 import Card from "../components/Card";
 import { MovieType } from "../utils/types/movie";
+import { useTitle } from "../utils/hooks/customHooks";
 
 const Favorite = () => {
+  useTitle("Cinephile - Your Favorite Movie");
   const [datas, setDatas] = useState<MovieType[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 

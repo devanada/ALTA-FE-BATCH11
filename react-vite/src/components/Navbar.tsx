@@ -6,6 +6,12 @@ const Navbar = () => {
       <Link to="/" className="btn btn-ghost normal-case text-xl">
         Cinephile
       </Link>
+      <Link to="/favorites" className="btn btn-ghost normal-case text-xl">
+        Favorite
+      </Link>
+      <Link to="/sandbox" className="btn btn-ghost normal-case text-xl">
+        Sandbox
+      </Link>
     </div>
   );
 };

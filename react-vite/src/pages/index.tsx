@@ -6,8 +6,10 @@ import Carousel from "../components/Carousel";
 import Layout from "../components/Layout";
 import Card from "../components/Card";
 import { MovieType } from "../utils/types/movie";
+import { useTitle } from "../utils/hooks/customHooks";
 
 const Index = () => {
+  useTitle("Cinephile - Now Playing Movie");
   // state sifatnya asynchronous, jadi tidak bisa langsung digunakan
   const [datas, setDatas] = useState<MovieType[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
