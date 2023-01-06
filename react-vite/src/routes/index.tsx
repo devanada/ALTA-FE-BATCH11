@@ -1,5 +1,4 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Component } from "react";
 
 import Homepage from "../pages";
 import DetailMovie from "../pages/DetailMovie";
@@ -20,10 +19,8 @@ const router = createBrowserRouter([
   },
 ]);
 
-class App extends Component {
-  render() {
-    return <RouterProvider router={router} />;
-  }
-}
+const App = () => {
+  return <RouterProvider router={router} />;
+};
 
 export default App;

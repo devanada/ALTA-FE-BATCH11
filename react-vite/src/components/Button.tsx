@@ -1,17 +1,15 @@
-import { Component, ButtonHTMLAttributes } from "react";
+import { FC, ButtonHTMLAttributes } from "react";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  label: string;
+  label?: string;
 }
 
-export class Button extends Component<ButtonProps> {
-  render() {
-    return (
-      <button className="btn w-full tracking-wider" {...this.props}>
-        {this.props.label}
-      </button>
-    );
-  }
-}
+const Button: FC<ButtonProps> = ({ label, ...props }) => {
+  return (
+    <button className="btn w-full tracking-wider" {...props}>
+      {label}
+    </button>
+  );
+};
 
 export default Button;
