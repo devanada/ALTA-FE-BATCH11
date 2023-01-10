@@ -7,7 +7,6 @@ import Button from "components/Button";
 import { useFetchGet } from "utils/hooks/customHooks";
 
 const Sandbox = () => {
-  const [first, setFirst] = useState("test");
   const [trigger, setTrigger] = useState(false);
   const [data] = useFetchGet("https://jsonplaceholder.typicode.com/todos/1");
 
