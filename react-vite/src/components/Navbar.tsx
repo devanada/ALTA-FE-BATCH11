@@ -28,10 +28,10 @@ const Navbar = () => {
           Favorite
         </Link>
         <Link
-          to="/sandbox"
+          to="/todo"
           className="btn btn-ghost normal-case text-xl text-black dark:text-white"
         >
-          Sandbox
+          Todo
         </Link>
       </div>
       <div>

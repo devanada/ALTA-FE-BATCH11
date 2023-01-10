@@ -1,17 +1,24 @@
-import React, { Component } from "react";
+import { FC, InputHTMLAttributes } from "react";
 
-export const Input = () => {
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
+  id: string;
+  label: string;
+}
+
+export const Input: FC<Props> = ({ label, id, ...props }) => {
   return (
     <div className="mb-3">
-      <input className="input input-bordered w-full" />
+      <label>{label}</label>
+      <input id={id} className="input input-bordered w-full" {...props} />
     </div>
   );
 };
 
-export const TextArea = () => {
+export const TextArea: FC<Props> = ({ label, id, ...props }) => {
   return (
     <div className="mb-3">
-      <textarea className="input input-bordered w-full" />
+      <label>{label}</label>
+      <input id={id} className="input input-bordered w-full" {...props} />
     </div>
   );
 };

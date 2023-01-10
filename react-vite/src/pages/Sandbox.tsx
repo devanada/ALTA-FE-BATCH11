@@ -3,12 +3,14 @@ import axios from "axios";
 
 import Layout from "components/Layout";
 import Button from "components/Button";
+import { Input } from "components/Input";
 
 import { useFetchGet } from "utils/hooks/customHooks";
 
 const Sandbox = () => {
   const [trigger, setTrigger] = useState(false);
-  const [data] = useFetchGet("https://jsonplaceholder.typicode.com/todos/1");
+  const [datas, setDatas] = useState([]);
+  const [inputTask, setInputTask] = useState("");
 
   /*
   Ketika ada perubahan state pada saat useEffect berjalan, maka terjadi sebuah re-render component.
@@ -59,11 +61,18 @@ const Sandbox = () => {
       });
   }
 
-  console.log(data);
   return (
     <Layout>
-      <p>Test</p>
-      <Button label="BUTTON" onClick={() => funcTest()} />
+      <div className="rounded-2xl w-full flex flex-col p-6 bg-white dark:bg-gray-500 shadow-xl">
+        <Input
+          id="input-task"
+          label="Insert a new task"
+          value={inputTask}
+          onChange={(e) => setInputTask(e.target.value)}
+        />
+        <Button label="Add Task" onClick={() => funcTest()} />
+        <p>{inputTask}</p>
+      </div>
     </Layout>
   );
 };
