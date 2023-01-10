@@ -1,14 +1,18 @@
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import axios from "axios";
 
 import { SkeletonLoading } from "../components/Loading";
 import Carousel from "../components/Carousel";
 import Layout from "../components/Layout";
 import Card from "../components/Card";
-import { MovieType } from "../utils/types/movie";
+
+import { setFavorites } from "../utils/redux/reducers/reducer";
 import { useTitle } from "../utils/hooks/customHooks";
+import { MovieType } from "../utils/types/movie";
 
 const Index = () => {
+  const dispatch = useDispatch();
   useTitle("Cinephile - Now Playing Movie");
   // state sifatnya asynchronous, jadi tidak bisa langsung digunakan
   const [datas, setDatas] = useState<MovieType[]>([]);
@@ -73,6 +77,7 @@ const Index = () => {
       let parseFav: MovieType[] = JSON.parse(checkExist);
       parseFav.push(data);
       localStorage.setItem("FavMovie", JSON.stringify(parseFav));
+      dispatch(setFavorites(parseFav));
     } else {
       localStorage.setItem("FavMovie", JSON.stringify([data]));
       alert("Movie added to favorite");
