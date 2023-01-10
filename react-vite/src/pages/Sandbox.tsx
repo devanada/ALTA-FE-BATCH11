@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-import Layout from "../components/Layout";
-import Button from "../components/Button";
-import { useFetchGet } from "../utils/hooks/customHooks";
+import Layout from "components/Layout";
+import Button from "components/Button";
+
+import { useFetchGet } from "utils/hooks/customHooks";
 
 const Sandbox = () => {
   const [first, setFirst] = useState("test");

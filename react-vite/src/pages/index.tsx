@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 
-import { SkeletonLoading } from "../components/Loading";
-import Carousel from "../components/Carousel";
-import Layout from "../components/Layout";
-import Card from "../components/Card";
+import { SkeletonLoading } from "components/Loading";
+import Carousel from "components/Carousel";
+import Layout from "components/Layout";
+import Card from "components/Card";
 
-import { setFavorites } from "../utils/redux/reducers/reducer";
-import { useTitle } from "../utils/hooks/customHooks";
-import { MovieType } from "../utils/types/movie";
+import { setFavorites } from "utils/redux/reducers/reducer";
+import { useTitle } from "utils/hooks/customHooks";
+import { MovieType } from "utils/types/movie";
 
 const Index = () => {
   const dispatch = useDispatch();

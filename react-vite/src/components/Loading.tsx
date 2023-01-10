@@ -1,7 +1,6 @@
-import React, { Component } from "react";
 import Lottie from "lottie-react";
 
-import MovieAnimation from "../assets/cinema-animation.json";
+import MovieAnimation from "assets/cinema-animation.json";
 
 export const SkeletonLoading = () => {
   return (

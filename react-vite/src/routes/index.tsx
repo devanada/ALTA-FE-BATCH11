@@ -2,13 +2,13 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useState, useMemo, useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-import Homepage from "../pages";
-import DetailMovie from "../pages/DetailMovie";
-import Favorite from "../pages/Favorite";
-import Sandbox from "../pages/Sandbox";
+import Homepage from "pages";
+import DetailMovie from "pages/DetailMovie";
+import Favorite from "pages/Favorite";
+import Sandbox from "pages/Sandbox";
 
-import { ThemeContext } from "../utils/context";
-import { setFavorites } from "../utils/redux/reducers/reducer";
+import { setFavorites } from "utils/redux/reducers/reducer";
+import { ThemeContext } from "utils/context";
 
 const router = createBrowserRouter([
   {

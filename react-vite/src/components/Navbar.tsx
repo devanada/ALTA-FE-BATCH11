@@ -3,7 +3,7 @@ import { useContext } from "react";
 
 import Button from "./Button";
 
-import { ThemeContext } from "../utils/context";
+import { ThemeContext } from "utils/context";
 
 const Navbar = () => {
   const { theme, setTheme } = useContext(ThemeContext);
@@ -13,7 +13,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className="navbar bg-base-100 dark:bg-merah justify-between">
+    <div className="navbar bg-base-100 dark:bg-gray-700 justify-between">
       <div className="flex">
         <Link
           to="/"

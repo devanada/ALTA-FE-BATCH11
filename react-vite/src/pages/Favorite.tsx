@@ -1,12 +1,12 @@
 import { useSelector, useDispatch } from "react-redux";
 
-import Layout from "../components/Layout";
-import Card from "../components/Card";
+import Layout from "components/Layout";
+import Card from "components/Card";
 
-import { setFavorites } from "../utils/redux/reducers/reducer";
-import { useTitle } from "../utils/hooks/customHooks";
-import { MovieType } from "../utils/types/movie";
-import { RootState } from "../utils/types/redux";
+import { setFavorites } from "utils/redux/reducers/reducer";
+import { useTitle } from "utils/hooks/customHooks";
+import { MovieType } from "utils/types/movie";
+import { RootState } from "utils/types/redux";
 
 const Favorite = () => {
   const dispatch = useDispatch();

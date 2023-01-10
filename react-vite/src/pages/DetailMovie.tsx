@@ -2,11 +2,12 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import moment from "moment";
 
-import { LoadingAnimation } from "../components/Loading";
-import Carousel from "../components/Carousel";
-import Layout from "../components/Layout";
-import { MovieType, VideosType } from "../utils/types/movie";
-import { useTitle } from "../utils/hooks/customHooks";
+import { LoadingAnimation } from "components/Loading";
+import Carousel from "components/Carousel";
+import Layout from "components/Layout";
+
+import { MovieType, VideosType } from "utils/types/movie";
+import { useTitle } from "utils/hooks/customHooks";
 
 const DetailMovie = () => {
   const { id_movie } = useParams();
